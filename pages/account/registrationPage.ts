@@ -63,7 +63,7 @@ export class RegistrationPage {
         await expect(this.submitButton, 'Form submit button should be visible').toBeVisible()
         await this.submitButton.click()
         if (toBeSuccessful) {
-            await this.page.waitForURL(config.address.accountCreated)
+            await this.page.waitForURL(`${config.address.accountCreated}**`)
         }
     }
 }

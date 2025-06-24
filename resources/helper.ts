@@ -4,8 +4,8 @@ export const config = {
     address: {
         home: '/index.php',
         registration: '/index.php?route=account/register&language=en-gb',
-        accountCreated: '/index.php?route=account/success&language=en-gb&customer_token=**',
-        account: '/index.php?route=account/account&language=en-gb&customer_token=**',
+        accountCreated: '/index.php?route=account/success&language=en-gb&customer_token=',
+        account: '/index.php?route=account/account&language=en-gb&customer_token=',
     },
     testData: {
         emailDomain: 'test.com',

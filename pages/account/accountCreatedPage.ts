@@ -15,6 +15,6 @@ export class AccountCreatedPage {
     async clickContinueButton() {
         await expect(this.continueButton, '"Continue" button should be visible').toBeVisible()
         await this.continueButton.click()
-        await this.page.waitForURL(config.address.account)
+        await this.page.waitForURL(`${config.address.account}**`)
     }
 }
