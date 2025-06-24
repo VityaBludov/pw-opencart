@@ -20,8 +20,8 @@ export const test = base.extend<MainFixtures>({
         await page.goto(config.address.home)
         await use(homePage)
     },
-    
-    navigationBarPage: async ({ page }, use) => {
+
+    navigationBarPage: async ({ page, homePage }, use) => {
         await use(new NavigationBarPage(page))
     },
 
