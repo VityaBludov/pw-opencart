@@ -1,8 +1,10 @@
 import { defineConfig, devices } from '@playwright/test'
 
 export default defineConfig({
+    testDir: './tests',
     fullyParallel: true,
     reporter: 'html',
+
     use: {
         baseURL: 'http://172.18.73.229:80',
         actionTimeout: 10000,
@@ -10,8 +12,24 @@ export default defineConfig({
 
     projects: [
         {
+            name: 'registration setup',
+            testMatch: 'registration.setup.ts',
+        },
+        {
             name: 'firefox',
-            use: { ...devices['Desktop Firefox'] },
+            testIgnore: 'account.spec.ts',
+            use: {
+                ...devices['Desktop Firefox'],
+                storageState: '.auth/user.json',
+            },
+            dependencies: ['registration setup'],
+        },
+        {
+            name: 'firefox no auth',
+            testMatch: 'account.spec.ts',
+            use: {
+                ...devices['Desktop Firefox'],
+            },
         },
     ],
 })

@@ -7,6 +7,9 @@ export const config = {
         accountCreated: '/index.php?route=account/success&language=en-gb&customer_token=',
         account: '/index.php?route=account/account&language=en-gb&customer_token=',
     },
+    endpoint: {
+        registration: '/index.php?route=account/register.register&language=en-gb&register_token='
+    },
     testData: {
         emailDomain: 'test.com',
     }

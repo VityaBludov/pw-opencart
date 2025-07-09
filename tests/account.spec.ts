@@ -1,7 +1,7 @@
 import { expect, test } from '../fixtures/main'
 import { RandomUser } from '../resources/helper'
 
-test('check registration process', async ({ navigationBarPage, registrationPage, accountCreatedPage }) => {
+test('check registration process @regression', async ({ navigationBarPage, registrationPage, accountCreatedPage }) => {
     const user = new RandomUser
     
     await navigationBarPage.selectAccountAction('Register')
