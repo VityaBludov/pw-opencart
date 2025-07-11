@@ -1,9 +1,12 @@
 import { expect, test as setup } from '@playwright/test'
 import { urls, RandomUser } from '../resources/helper'
+import fs from 'fs'
 
 const authFile = '.auth/storageState.json'
+const userFile = '.auth/user/shopping/customer.json'
 const user = new RandomUser()
-// TODO: save user object globally if needed in tests. Use env variables?
+
+fs.writeFileSync(userFile, JSON.stringify(user)) // save user data to reuse in tests
 
 setup('register user for tests', async ({ request }) => {
     const pageResponse = await request.get(urls.page.registration)

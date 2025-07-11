@@ -1,9 +1,12 @@
 import { expect, test } from '../fixtures/main'
 import { RandomUser } from '../resources/helper'
+import fs from 'fs'
 
-test('check registration process @regression', async ({ navigationBarPage, registrationPage, accountCreatedPage }) => {
-    const user = new RandomUser
-    
+const user = new RandomUser
+const userFile = '.auth/user/account/customer.json'
+fs.writeFileSync(userFile, JSON.stringify(user)) // save user data to reuse in further tests
+
+test('check registration process @regression', async ({ navigationBarPage, registrationPage, accountCreatedPage }) => {   
     await navigationBarPage.selectAccountAction('Register')
     await registrationPage.inputFirstName(user.firstName)
     await registrationPage.inputLastName(user.lastName)
