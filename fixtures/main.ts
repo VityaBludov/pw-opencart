@@ -5,6 +5,7 @@ import { HomePage } from '../pages/homePage'
 import { NavigationBarPage  } from '../pages/navigationBarPage'
 import { RegistrationPage } from '../pages/account/registrationPage'
 import { AccountCreatedPage } from '../pages/account/accountCreatedPage'
+import { CategoryPage } from '../pages/shopping/categoryPage'
 
 
 type MainFixtures = {
@@ -12,6 +13,7 @@ type MainFixtures = {
     navigationBarPage: NavigationBarPage
     registrationPage: RegistrationPage
     accountCreatedPage: AccountCreatedPage
+    categoryPage: CategoryPage
 }
 
 export const test = base.extend<MainFixtures>({
@@ -31,6 +33,10 @@ export const test = base.extend<MainFixtures>({
 
     accountCreatedPage: async ({ page }, use) => {
         await use(new AccountCreatedPage(page))
+    },
+
+    categoryPage: async ({ page }, use) => {
+        await use(new CategoryPage(page))
     },
 })
 
