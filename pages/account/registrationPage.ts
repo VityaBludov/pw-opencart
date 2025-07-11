@@ -1,5 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test'
-import { config } from '../../resources/helper'
+import { urls } from '../../resources/helper'
 
 export class RegistrationPage {
     readonly page: Page
@@ -63,7 +63,7 @@ export class RegistrationPage {
         await expect(this.submitButton, 'Form submit button should be visible').toBeVisible()
         await this.submitButton.click()
         if (toBeSuccessful) {
-            await this.page.waitForURL(`${config.address.accountCreated}**`)
+            await this.page.waitForURL(`${urls.page.accountCreated}**`)
         }
     }
 }

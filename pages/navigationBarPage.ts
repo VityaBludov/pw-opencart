@@ -1,5 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test'
-import { config } from '../resources/helper'
+import { urls } from '../resources/helper'
 
 export class NavigationBarPage {
     page: Page
@@ -24,6 +24,6 @@ export class NavigationBarPage {
         const actionLink = this.navigationBar.getByText(action)
         await expect(actionLink, `Link ${action} should be visible`).toBeVisible()
         await actionLink.click()
-        await this.page.waitForURL(config.address.registration)
+        await this.page.waitForURL(urls.page.registration)
     }
 }

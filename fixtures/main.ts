@@ -1,5 +1,5 @@
 import { test as base } from '@playwright/test'
-import { config } from '../resources/helper'
+import { urls } from '../resources/helper'
 
 import { HomePage } from '../pages/homePage'
 import { NavigationBarPage  } from '../pages/navigationBarPage'
@@ -19,7 +19,7 @@ type MainFixtures = {
 export const test = base.extend<MainFixtures>({
     homePage: async ({ page }, use) => {
         const homePage = new HomePage(page)
-        await page.goto(config.address.home)
+        await page.goto(urls.page.home)
         await use(homePage)
     },
 
