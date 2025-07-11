@@ -20,7 +20,7 @@ export default defineConfig({
             testIgnore: 'account.spec.ts',
             use: {
                 ...devices['Desktop Firefox'],
-                storageState: '.auth/user.json',
+                storageState: '.auth/storageState.json',
             },
             dependencies: ['registration setup'],
         },
