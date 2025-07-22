@@ -16,13 +16,17 @@ export default defineConfig({
             testMatch: 'registration.setup.ts',
         },
         {
+            name: 'prepare products',
+            testMatch: 'prepareProducts.setup.ts'
+        },
+        {
             name: 'firefox',
             testIgnore: 'account.spec.ts',
             use: {
                 ...devices['Desktop Firefox'],
                 storageState: '.auth/storageState.json',
             },
-            dependencies: ['registration setup'],
+            dependencies: ['registration setup', 'prepare products'],
         },
         {
             name: 'firefox no auth',

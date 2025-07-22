@@ -1,4 +1,5 @@
 import { faker } from '@faker-js/faker'
+import mysql from 'mysql2/promise'
 
 export const urls = {
     page: {
@@ -15,6 +16,17 @@ export const urls = {
     }
 }
 
+export const mysqlParameters = {
+    host: '172.18.73.229',  // TODO: replace with variable
+    port: 3306,
+    user: 'pw',
+    password: 'pw',         // TODO: move to secret
+    database: 'opencartdb'
+}
+
+/**
+ * User with fake random name and email address
+ */
 export class RandomUser {
     readonly firstName: string
     readonly lastName: string
@@ -26,5 +38,27 @@ export class RandomUser {
         this.lastName = faker.person.lastName()
         this.email = `${this.firstName}.${this.lastName}${faker.number.int(1000)}@${urls.testData.emailDomain}`
         this.password = faker.internet.password({ length: 8 })
+    }
+}
+
+/**
+ * Connects to mySQL database and executes required query
+ * @param query - string containing query to execute
+ * @returns array of objects, containing query results
+ */
+export async function mysqlQuery(query: string) {
+    const connection = await mysql.createConnection({
+        host: mysqlParameters.host,
+        port: mysqlParameters.port,
+        user: mysqlParameters.user,
+        password: mysqlParameters.password,
+        database: mysqlParameters.database
+    })
+
+    try {
+        const [results, fields] = await connection.query(query)
+        return results
+    } catch (err) {
+        console.log(err)
     }
 }

@@ -16,13 +16,17 @@ export default defineConfig({
             testMatch: 'registration.setup.ts',
         },
         {
+            name: 'prepare products',
+            testMatch: 'prepareProducts.setup.ts'
+        },
+        {
             name: 'chromium',
             testIgnore: 'account.spec.ts',
             use: {
                 ...devices['Desktop Chrome'],
                 storageState: '.auth/storageState.json',
             },
-            dependencies: ['registration setup'],
+            dependencies: ['registration setup', 'prepare products'],
         },
         {
             name: 'chromium no auth',
