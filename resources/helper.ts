@@ -7,9 +7,11 @@ export const urls = {
         registration: '/index.php?route=account/register&language=en-gb',
         accountCreated: '/index.php?route=account/success&language=en-gb&customer_token=',
         account: '/index.php?route=account/account&language=en-gb&customer_token=',
+        checkout: '/index.php?route=checkout/checkout&language=en-gb',
     },
     endpoint: {
-        registration: '/index.php?route=account/register.register&language=en-gb&register_token='
+        registration: '/index.php?route=account/register.register&language=en-gb&register_token=',
+        cartInfo: '/index.php?route=common/cart.info&language=en-gb'
     },
     testData: {
         emailDomain: 'test.com',
@@ -22,6 +24,14 @@ export const mysqlParameters = {
     user: 'pw',
     password: 'pw',         // TODO: move to secret
     database: 'opencartdb'
+}
+
+export const testValues = {
+    timeouts: {
+        short: 5000,
+        medium: 10000,
+        long: 20000
+    }
 }
 
 /**
@@ -52,11 +62,13 @@ export async function mysqlQuery(query: string) {
         port: mysqlParameters.port,
         user: mysqlParameters.user,
         password: mysqlParameters.password,
-        database: mysqlParameters.database
+        database: mysqlParameters.database,
+        connectTimeout: testValues.timeouts.long        // reverse resolution takes ~10s for unknown reason, extended timeout in case of missing record in WSL's hosts
     })
 
     try {
         const [results, fields] = await connection.query(query)
+        await connection.end()
         return results
     } catch (err) {
         console.log(err)
