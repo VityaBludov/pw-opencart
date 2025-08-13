@@ -20,20 +20,32 @@ export default defineConfig({
             testMatch: 'prepareProducts.setup.ts'
         },
         {
-            name: 'chromium',
-            testIgnore: 'account.spec.ts',
+            name: 'admin setup',
+            testMatch: 'adminLogin.setup.ts',
+        },
+        {
+            name: 'shopping',
+            testMatch: 'shopping.spec.ts',
             use: {
-                ...devices['Desktop Chrome'],
+                ...devices['Desktop Firefox'],
                 storageState: '.auth/storageState.json',
             },
             dependencies: ['registration setup', 'prepare products'],
         },
         {
-            name: 'chromium no auth',
+            name: 'account',
             testMatch: 'account.spec.ts',
             use: {
-                ...devices['Desktop Chrome'],
+                ...devices['Desktop Firefox'],
             },
+        },
+        {
+            name: 'admin',
+            testMatch: 'admin.spec.ts',
+            use: {
+                ...devices['Desktop Firefox'],
+            },
+            dependencies: ['admin setup'],
         },
     ],
 })

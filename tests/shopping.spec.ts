@@ -49,5 +49,5 @@ test('pick product from catalog and proceed to payment @regression', async ({ ho
 })
 
 test('search for product, pick from search results and proceed to payment', async ({ homePage }) => {
-    // WIP
+    // not implemented due to broken search functionality in opencart
 })

@@ -20,8 +20,12 @@ export default defineConfig({
             testMatch: 'prepareProducts.setup.ts'
         },
         {
-            name: 'firefox',
-            testIgnore: 'account.spec.ts',
+            name: 'admin setup',
+            testMatch: 'adminLogin.setup.ts',
+        },
+        {
+            name: 'shopping',
+            testMatch: 'shopping.spec.ts',
             use: {
                 ...devices['Desktop Firefox'],
                 storageState: '.auth/storageState.json',
@@ -29,11 +33,19 @@ export default defineConfig({
             dependencies: ['registration setup', 'prepare products'],
         },
         {
-            name: 'firefox no auth',
+            name: 'account',
             testMatch: 'account.spec.ts',
             use: {
                 ...devices['Desktop Firefox'],
             },
+        },
+        {
+            name: 'admin',
+            testMatch: 'admin.spec.ts',
+            use: {
+                ...devices['Desktop Firefox'],
+            },
+            dependencies: ['admin setup'],
         },
     ],
 })

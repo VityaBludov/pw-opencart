@@ -15,14 +15,28 @@ export const urls = {
     },
     testData: {
         emailDomain: 'test.com',
-    }
+    },
+    admin: {
+        home: '/admin/index.php',
+        login: '/admin/index.php?route=common/login.login&login_token=',
+        dashboard: '/admin/index.php?route=common/dashboard&user_token=',
+    },
+}
+
+export const defaultUsers = {
+    admin: {
+        superAdmin: {
+            username: 'admin',
+            password: 'admin',    // TODO: move to secret
+        },
+    },
 }
 
 export const mysqlParameters = {
-    host: '172.18.73.229',  // TODO: replace with variable
+    host: '172.18.73.229',        // TODO: replace with variable
     port: 3306,
     user: 'pw',
-    password: 'pw',         // TODO: move to secret
+    password: 'pw',               // TODO: move to secret
     database: 'opencartdb'
 }
 
