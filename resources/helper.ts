@@ -20,6 +20,8 @@ export const urls = {
         home: '/admin/index.php',
         login: '/admin/index.php?route=common/login.login&login_token=',
         dashboard: '/admin/index.php?route=common/dashboard&user_token=',
+        users: '/admin/index.php?route=user/user&user_token=',
+        addUser: '/admin/index.php?route=user/user.form&user_token='
     },
 }
 

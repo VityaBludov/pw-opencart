@@ -44,6 +44,7 @@ export default defineConfig({
             testMatch: 'admin.spec.ts',
             use: {
                 ...devices['Desktop Firefox'],
+                storageState: '.auth/admin/storageStateSuperAdmin.json' // TODO: move to spec file, split per each test
             },
             dependencies: ['admin setup'],
         },

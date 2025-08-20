@@ -1,0 +1,27 @@
+import { expect, test } from '../fixtures/admin'
+import { RandomUser, urls } from '../resources/helper'
+
+test('as super admin user, add new admin user', async ({ dashboardPage, navigationPanelPage, usersPage, addUserPage }) => {
+    // TODO: use dedicated storage state per each user type
+    const user = new RandomUser()
+    const username = user.email.match(/(?<=\.).*(?=@)/)?.[0]    // trying to be as unique as possible while sticking to email and fitting into 20-char limit
+
+    await dashboardPage.handleModal()    // handle security warning in case it appears
+    await navigationPanelPage.expandMenu(navigationPanelPage.mainMenuItemSystem)
+    await navigationPanelPage.expandMenu(navigationPanelPage.systemMenuItemUsers)
+    await navigationPanelPage.clickPageLink(navigationPanelPage.systemUsersMenuLinkUsers, urls.admin.users)
+
+    await usersPage.clickAddUserButton()
+    await addUserPage.inputText(addUserPage.usernameField, username ? username : `${user.firstName}.${user.lastName}`)
+    await addUserPage.setUserGroupRandom()
+    await addUserPage.inputText(addUserPage.firstNameField, user.firstName)
+    await addUserPage.inputText(addUserPage.lastNameField, user.lastName)
+    await addUserPage.inputText(addUserPage.emailField, user.email)
+    await addUserPage.inputText(addUserPage.passwordField, user.password)
+    await addUserPage.inputText(addUserPage.confirmField, user.password)
+    await addUserPage.setStatusActive()
+    await addUserPage.saveForm()
+    await expect(addUserPage.successBanner, 'Success banner should be visible').toBeVisible()
+    await expect(addUserPage.successBanner, 'Success banner should have proper message').toHaveText('Success: You have modified users!')
+    await addUserPage.returnToUsersPage()
+})
