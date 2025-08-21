@@ -14,14 +14,24 @@ export default defineConfig({
         {
             name: 'registration setup',
             testMatch: 'registration.setup.ts',
+            teardown: 'registration teardown',
+        },
+        {
+            name: 'registration teardown',
+            testMatch: 'registration.teardown.ts',
         },
         {
             name: 'prepare products',
-            testMatch: 'prepareProducts.setup.ts'
+            testMatch: 'prepareProducts.setup.ts',
         },
         {
             name: 'admin setup',
             testMatch: 'adminLogin.setup.ts',
+            teardown: 'admin teardown',
+        },
+        {
+            name: 'admin teardown',
+            testMatch: 'admin.teardown.ts',
         },
         {
             name: 'shopping',
