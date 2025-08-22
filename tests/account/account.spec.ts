@@ -1,5 +1,5 @@
-import { expect, test } from '../fixtures/main'
-import { RandomUser } from '../resources/helper'
+import { expect, test } from '../../fixtures/main'
+import { RandomUser } from '../../resources/helper'
 import fs from 'fs'
 
 const user = new RandomUser

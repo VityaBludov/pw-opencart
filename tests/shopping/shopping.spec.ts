@@ -1,8 +1,8 @@
-import { expect, test } from '../fixtures/main'
+import { expect, test } from '../../fixtures/main'
 import fs from 'fs'
-import { SearchResultsPage } from '../pages/shopping/searchResultsPage'
-import { ProductPage } from '../pages/shopping/productPage'
-import { CheckoutPage } from '../pages/shopping/checkoutPage'
+import { SearchResultsPage } from '../../pages/shopping/searchResultsPage'
+import { ProductPage } from '../../pages/shopping/productPage'
+import { CheckoutPage } from '../../pages/shopping/checkoutPage'
 
 const userFile = '.auth/user/shopping/customer.json'
 const productsFile = '.db/products.json'

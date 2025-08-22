@@ -1,5 +1,5 @@
 import { expect, test as setup } from '@playwright/test'
-import { urls, RandomUser } from '../resources/helper'
+import { urls, RandomUser } from '../../resources/helper'
 import fs from 'fs'
 
 const authFile = '.auth/storageState.json'

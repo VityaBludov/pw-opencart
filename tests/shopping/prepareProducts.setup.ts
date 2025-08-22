@@ -1,5 +1,5 @@
 import { expect, test as setup } from '@playwright/test'
-import { mysqlQuery } from '../resources/helper'
+import { mysqlQuery } from '../../resources/helper'
 import fs from 'fs'
 
 const productsFile = '.db/products.json'

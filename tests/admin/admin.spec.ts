@@ -1,5 +1,5 @@
-import { expect, test } from '../fixtures/admin'
-import { RandomUser, urls } from '../resources/helper'
+import { expect, test } from '../../fixtures/admin'
+import { RandomUser, urls } from '../../resources/helper'
 
 const authFileSuperAdmin = '.auth/admin/storageStateSuperAdmin.json'
 

@@ -1,5 +1,5 @@
 import { expect, test as setup } from '@playwright/test'
-import { defaultUsers, urls } from '../resources/helper'
+import { defaultUsers, urls } from '../../resources/helper'
 
 const authFileSuperAdmin = '.auth/admin/storageStateSuperAdmin.json'
 
