@@ -24,7 +24,6 @@ export const test = base.extend<FixtureOptions & AdminFixtures>({
 
     dashboardPage: async ({ page, userToken }, use) => {
         const dashboardPage = new DashboardPage(page)
-        console.log(`userToken: ${userToken}`)
         await page.goto(`${urls.admin.dashboard}${userToken}`)
         await page.waitForURL(`${urls.admin.dashboard}${userToken}`)
         await use(dashboardPage)
