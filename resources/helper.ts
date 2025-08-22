@@ -31,11 +31,15 @@ export const defaultUsers = {
             username: 'admin',
             password: 'admin',    // TODO: move to secret
         },
+        productAdmin: {
+            username: 'productAdmin',
+            password: '123123',   // TODO: move to secret
+        }
     },
 }
 
 export const mysqlParameters = {
-    host: '172.18.73.229',        // TODO: replace with variable
+    host: '172.18.73.229',        // TODO: replace with env-dependent variable
     port: 3306,
     user: 'pw',
     password: 'pw',               // TODO: move to secret

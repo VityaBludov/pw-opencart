@@ -1,5 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test'
-import { randomElement, urls } from '../../resources/helper'
+import { urls } from '../../resources/helper'
 
 export class AddUserPage {
     readonly page: Page

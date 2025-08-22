@@ -1,0 +1,15 @@
+{
+  "cookies": [
+    {
+      "name": "OCSESSID",
+      "value": "5d7a2aef48edfe8144eca715b8",
+      "domain": "172.18.73.229",
+      "path": "/admin/",
+      "expires": 1755962818.895,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Strict"
+    }
+  ],
+  "origins": []
+}
