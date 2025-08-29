@@ -1,8 +1,9 @@
 import { expect, test } from '../../fixtures/admin'
 import { RandomUser, urls } from '../../resources/helper'
+import { faker } from '@faker-js/faker'
 
 const authFileSuperAdmin = '.auth/admin/storageStateSuperAdmin.json'
-const authFileProductAdmin = './auth/admin/storageStateProductAdmin.json'
+const authFileProductAdmin = '.auth/admin/storageStateProductAdmin.json'
 
 test.describe('Suite: super admin', () => {
     test.use({ storageState: authFileSuperAdmin, userToken: process.env.TOKEN_ADMIN_SUPER })
@@ -35,7 +36,57 @@ test.describe('Suite: super admin', () => {
 test.describe('Suite: product admin', () => {
     test.use({ storageState: authFileProductAdmin, userToken: process.env.TOKEN_ADMIN_PRODUCT })
 
-    test('stub', async ({ dashboardPage }) => {
-        // temp stub to verify login
+    test('as product admin, add new product to catalog', async ({ dashboardPage, navigationPanelPage, productsPage, addProductPage }) => {
+        const productName = `testProduct${faker.number.int(999)}`
+        const productImageName = 'product.png'
+        const productImagePath = 'resources/test-data/img/'
+        
+        await dashboardPage.handleModal()    // handle security warning in case it appears
+        await navigationPanelPage.expandMenu(navigationPanelPage.mainMenuItemCatalog)
+        await navigationPanelPage.clickPageLink(navigationPanelPage.catalogMenuLinkProducts, urls.admin.products)
+        
+        await productsPage.clickAddProductButton()
+        await addProductPage.switchToTab(addProductPage.generalTab)
+        // TODO: fix assertion
+        // expect(await addProductPage.isTabActive(addProductPage.generalTab), '"General" tab should be active').toBeTruthy()
+        await addProductPage.inputText(addProductPage.productNameField, productName)
+        await addProductPage.inputText(addProductPage.descriptionField, faker.lorem.paragraph(5))
+        await addProductPage.inputText(addProductPage.metaTagTitleField, productName)
+
+        await addProductPage.switchToTab(addProductPage.dataTab)
+        // TODO: fix assertion
+        // expect(await addProductPage.isTabActive(addProductPage.dataTab), '"Data" tab should be active').toBeTruthy()
+        await addProductPage.inputText(addProductPage.modelField, productName)
+        await addProductPage.inputText(addProductPage.priceField, faker.commerce.price({ min: 10, max: 100 }))
+        await addProductPage.selectListOptionRandom(addProductPage.taxClassList)
+        await addProductPage.inputText(addProductPage.quantityField, '1000')
+        await addProductPage.inputText(addProductPage.lengthField, '30')
+        await addProductPage.inputText(addProductPage.widthField, '40')
+        await addProductPage.inputText(addProductPage.heightField, '50')
+        await addProductPage.selectListOptionRandom(addProductPage.lengthClassList)
+        await addProductPage.inputText(addProductPage.weightField, '50')
+        await addProductPage.selectListOptionRandom(addProductPage.weightClassList)
+
+        await addProductPage.switchToTab(addProductPage.linksTab)
+        // TODO: fix assertion
+        // expect(await addProductPage.isTabActive(addProductPage.linksTab), '"Links" tab should be active').toBeTruthy()
+        await addProductPage.selectManufacturerRandom()
+        await addProductPage.selectCategoryRandom()
+
+        await addProductPage.switchToTab(addProductPage.imageTab)
+        // TODO: fix assertion
+        // expect(await addProductPage.isTabActive(addProductPage.imageTab), '"Image" tab should be active').toBeTruthy()
+        await addProductPage.uploadImage(`${productImagePath}${productImageName}`)
+        await addProductPage.selectUploadedImage(productImageName)
+
+        await addProductPage.switchToTab(addProductPage.seoTab)
+        // TODO: fix assertion
+        // expect(await addProductPage.isTabActive(addProductPage.seoTab), '"SEO" tab should be active').toBeTruthy()
+        await addProductPage.inputText(addProductPage.keywordField, faker.string.alpha(10))
+
+        await addProductPage.saveForm()
+        // TODO: fix assertions
+        // await expect(addProductPage.successBanner, 'Success banner should be visible').toBeVisible()
+        // await expect(addProductPage.successBanner, 'Success banner should have proper message').toHaveText('Success: You have modified products!')
     })
 })

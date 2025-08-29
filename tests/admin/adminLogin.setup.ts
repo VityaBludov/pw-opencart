@@ -2,7 +2,7 @@ import { test as setup } from '../../fixtures/admin'
 import { defaultUsers } from '../../resources/helper'
 
 const authFileSuperAdmin = '.auth/admin/storageStateSuperAdmin.json'
-const authFileProductAdmin = './auth/admin/storageStateProductAdmin.json'
+const authFileProductAdmin = '.auth/admin/storageStateProductAdmin.json'
 
 setup('login as admin super user for tests', async ({ apiPage }) => {
     process.env.TOKEN_ADMIN_SUPER = await apiPage.login(defaultUsers.admin.superAdmin.username, defaultUsers.admin.superAdmin.password, authFileSuperAdmin)

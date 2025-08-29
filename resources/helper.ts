@@ -11,7 +11,12 @@ export const urls = {
     },
     endpoint: {
         registration: '/index.php?route=account/register.register&language=en-gb&register_token=',
-        cartInfo: '/index.php?route=common/cart.info&language=en-gb'
+        cartInfo: '/index.php?route=common/cart.info&language=en-gb',
+        admin: {
+            manufacturers: '/admin/index.php?route=catalog/manufacturer.autocomplete&user_token=',
+            categories: '/admin/index.php?route=catalog/category.autocomplete&user_token=',
+            images: '/admin/index.php?route=common/filemanager.list&user_token=',
+        },
     },
     testData: {
         emailDomain: 'test.com',
@@ -21,7 +26,9 @@ export const urls = {
         login: '/admin/index.php?route=common/login.login&login_token=',
         dashboard: '/admin/index.php?route=common/dashboard&user_token=',
         users: '/admin/index.php?route=user/user&user_token=',
-        addUser: '/admin/index.php?route=user/user.form&user_token='
+        addUser: '/admin/index.php?route=user/user.form&user_token=',
+        products: '/admin/index.php?route=catalog/product&user_token=',
+        addProduct: '/admin/index.php?route=catalog/product.form&user_token=',
     },
 }
 

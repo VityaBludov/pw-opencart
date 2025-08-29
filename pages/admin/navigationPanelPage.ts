@@ -2,17 +2,25 @@ import { expect, Locator, Page } from '@playwright/test'
 
 export class NavigationPanelPage {
     readonly page: Page
+
     readonly navigationPanel: Locator
     readonly mainMenuItemSystem: Locator
     readonly systemMenuItemUsers: Locator
     readonly systemUsersMenuLinkUsers: Locator
 
+    readonly mainMenuItemCatalog: Locator
+    readonly catalogMenuLinkProducts: Locator
+
     constructor(page: Page) {
         this.page = page
+        
         this.navigationPanel          = this.page.locator('#column-left')
         this.mainMenuItemSystem       = this.navigationPanel.locator('#menu-system')
         this.systemMenuItemUsers      = this.mainMenuItemSystem.locator('li', { hasText: 'Users' }).first()
         this.systemUsersMenuLinkUsers = this.systemMenuItemUsers.locator('li', { hasText: 'Users' }).first()
+
+        this.mainMenuItemCatalog      = this.page.locator('#menu-catalog')
+        this.catalogMenuLinkProducts  = this.mainMenuItemCatalog.locator('li', { hasText: 'Products' })
     }
 
     async expandMenu(menuItem: Locator) {

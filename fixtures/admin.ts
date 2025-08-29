@@ -6,6 +6,8 @@ import { NavigationPanelPage } from '../pages/admin/navigationPanelPage'
 import { UsersPage } from '../pages/admin/usersPage'
 import { AddUserPage } from '../pages/admin/addUserPage'
 import { ApiPage } from '../pages/admin/apiPage'
+import { ProductsPage } from '../pages/admin/productsPage'
+import { AddProductPage } from '../pages/admin/addProductPage'
 
 export type FixtureOptions = {
     userToken: string,
@@ -17,6 +19,8 @@ type AdminFixtures = {
     usersPage: UsersPage,
     addUserPage: AddUserPage,
     apiPage: ApiPage,
+    productsPage: ProductsPage,
+    addProductPage: AddProductPage,
 }
 
 export const test = base.extend<FixtureOptions & AdminFixtures>({
@@ -39,6 +43,12 @@ export const test = base.extend<FixtureOptions & AdminFixtures>({
     },
     apiPage: async ({ request }, use) => {
         await use(new ApiPage(request))
+    },
+    productsPage: async ({ page }, use) => {
+        await use(new ProductsPage(page))
+    },
+    addProductPage: async ({ page }, use) => {
+        await use(new AddProductPage(page))
     },
 })
 
