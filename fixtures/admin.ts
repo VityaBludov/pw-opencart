@@ -5,7 +5,7 @@ import { DashboardPage } from '../pages/admin/dashboardPage'
 import { NavigationPanelPage } from '../pages/admin/navigationPanelPage'
 import { UsersPage } from '../pages/admin/usersPage'
 import { AddUserPage } from '../pages/admin/addUserPage'
-import { ApiPage } from '../pages/admin/apiPage'
+import { ApiHandler } from '../handlers/apiHandler'
 import { ProductsPage } from '../pages/admin/productsPage'
 import { AddProductPage } from '../pages/admin/addProductPage'
 
@@ -18,7 +18,7 @@ type AdminFixtures = {
     navigationPanelPage: NavigationPanelPage,
     usersPage: UsersPage,
     addUserPage: AddUserPage,
-    apiPage: ApiPage,
+    apiHandler: ApiHandler,
     productsPage: ProductsPage,
     addProductPage: AddProductPage,
 }
@@ -41,8 +41,8 @@ export const test = base.extend<FixtureOptions & AdminFixtures>({
     addUserPage: async ({ page }, use) => {
         await use(new AddUserPage(page))
     },
-    apiPage: async ({ request }, use) => {
-        await use(new ApiPage(request))
+    apiHandler: async ({ request }, use) => {
+        await use(new ApiHandler(request))
     },
     productsPage: async ({ page }, use) => {
         await use(new ProductsPage(page))

@@ -1,7 +1,7 @@
 import { APIRequestContext, expect } from '@playwright/test'
-import { urls } from '../../resources/config'
+import { urls } from '../resources/config'
 
-export class ApiPage {
+export class ApiHandler {
     readonly request: APIRequestContext
 
     constructor(request: APIRequestContext) {
