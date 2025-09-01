@@ -47,15 +47,13 @@ test.describe('Suite: product admin', () => {
         
         await productsPage.clickAddProductButton()
         await addProductPage.switchToTab(addProductPage.generalTab)
-        // TODO: fix assertion
-        // expect(await addProductPage.isTabActive(addProductPage.generalTab), '"General" tab should be active').toBeTruthy()
+        expect(await addProductPage.isTabActive(addProductPage.generalTab), '"General" tab should be active').toBeTruthy()
         await addProductPage.inputText(addProductPage.productNameField, productName)
         await addProductPage.inputText(addProductPage.descriptionField, faker.lorem.paragraph(5))
         await addProductPage.inputText(addProductPage.metaTagTitleField, productName)
 
         await addProductPage.switchToTab(addProductPage.dataTab)
-        // TODO: fix assertion
-        // expect(await addProductPage.isTabActive(addProductPage.dataTab), '"Data" tab should be active').toBeTruthy()
+        expect(await addProductPage.isTabActive(addProductPage.dataTab), '"Data" tab should be active').toBeTruthy()
         await addProductPage.inputText(addProductPage.modelField, productName)
         await addProductPage.inputText(addProductPage.priceField, faker.commerce.price({ min: 10, max: 100 }))
         await addProductPage.selectListOptionRandom(addProductPage.taxClassList)
@@ -68,25 +66,21 @@ test.describe('Suite: product admin', () => {
         await addProductPage.selectListOptionRandom(addProductPage.weightClassList)
 
         await addProductPage.switchToTab(addProductPage.linksTab)
-        // TODO: fix assertion
-        // expect(await addProductPage.isTabActive(addProductPage.linksTab), '"Links" tab should be active').toBeTruthy()
+        expect(await addProductPage.isTabActive(addProductPage.linksTab), '"Links" tab should be active').toBeTruthy()
         await addProductPage.selectManufacturerRandom()
         await addProductPage.selectCategoryRandom()
 
         await addProductPage.switchToTab(addProductPage.imageTab)
-        // TODO: fix assertion
-        // expect(await addProductPage.isTabActive(addProductPage.imageTab), '"Image" tab should be active').toBeTruthy()
+        expect(await addProductPage.isTabActive(addProductPage.imageTab), '"Image" tab should be active').toBeTruthy()
         await addProductPage.uploadImage(`${productImagePath}${productImageName}`)
         await addProductPage.selectUploadedImage(productImageName)
 
         await addProductPage.switchToTab(addProductPage.seoTab)
-        // TODO: fix assertion
-        // expect(await addProductPage.isTabActive(addProductPage.seoTab), '"SEO" tab should be active').toBeTruthy()
+        expect(await addProductPage.isTabActive(addProductPage.seoTab), '"SEO" tab should be active').toBeTruthy()
         await addProductPage.inputText(addProductPage.keywordField, faker.string.alpha(10))
 
         await addProductPage.saveForm()
-        // TODO: fix assertions
-        // await expect(addProductPage.successBanner, 'Success banner should be visible').toBeVisible()
-        // await expect(addProductPage.successBanner, 'Success banner should have proper message').toHaveText('Success: You have modified products!')
+        await expect(addProductPage.successBanner, 'Success banner should be visible').toBeVisible()
+        await expect(addProductPage.successBanner, 'Success banner should have proper message').toHaveText('Success: You have modified products!')
     })
 })

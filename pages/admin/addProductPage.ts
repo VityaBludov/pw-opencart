@@ -77,12 +77,11 @@ export class AddProductPage {
 
         this.saveButton        = this.page.locator('.fa-floppy-disk')
         this.returnButton      = this.page.locator('[aria-label="Back"]')
-        this.successBanner     = this.page.locator('#alert-success')
+        this.successBanner     = this.page.locator('#alert')
     }
 
     async isTabActive(tab: Locator): Promise<boolean> {
-        const isActive = await tab.getAttribute('aria-selected')
-        console.log(`isActive: ${isActive}`)
+        const isActive = await tab.locator('a').getAttribute('aria-selected')
         
         if (isActive === 'true') {
             return true
@@ -154,11 +153,12 @@ export class AddProductPage {
     async saveForm() {
         await expect(this.saveButton, 'Save button should be visible').toBeVisible()
         await this.saveButton.click()
+        await this.page.waitForResponse(`${urls.endpoint.admin.products}**`)
     }
 
-    async returnToUsersPage() {
+    async returnToProductsPage() {
         await expect(this.returnButton, 'Return button should be visible').toBeVisible()
         await this.returnButton.click()
-        await this.page.waitForURL(`${urls.admin.users}**`)
+        await this.page.waitForURL(`${urls.admin.products}**`)
     }
 }

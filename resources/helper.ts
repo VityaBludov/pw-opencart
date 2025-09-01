@@ -16,6 +16,7 @@ export const urls = {
             manufacturers: '/admin/index.php?route=catalog/manufacturer.autocomplete&user_token=',
             categories: '/admin/index.php?route=catalog/category.autocomplete&user_token=',
             images: '/admin/index.php?route=common/filemanager.list&user_token=',
+            products: '/admin/index.php?route=catalog/product.save&user_token='
         },
     },
     testData: {
