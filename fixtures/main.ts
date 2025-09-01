@@ -1,5 +1,5 @@
 import { test as base } from '@playwright/test'
-import { urls } from '../resources/helper'
+import { urls } from '../resources/config'
 
 import { HomePage } from '../pages/homePage'
 import { NavigationBarPage  } from '../pages/navigationBarPage'

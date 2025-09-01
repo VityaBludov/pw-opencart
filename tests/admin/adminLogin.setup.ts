@@ -1,5 +1,5 @@
 import { test as setup } from '../../fixtures/admin'
-import { defaultUsers } from '../../resources/helper'
+import { defaultUsers } from '../../resources/config'
 
 const authFileSuperAdmin = '.auth/admin/storageStateSuperAdmin.json'
 const authFileProductAdmin = '.auth/admin/storageStateProductAdmin.json'

@@ -1,14 +1,15 @@
 import { expect, test } from '../../fixtures/admin'
-import { RandomUser, urls } from '../../resources/helper'
+import { RandomUser } from '../../resources/helper'
+import { urls } from '../../resources/config'
 import { faker } from '@faker-js/faker'
 
 const authFileSuperAdmin = '.auth/admin/storageStateSuperAdmin.json'
 const authFileProductAdmin = '.auth/admin/storageStateProductAdmin.json'
 
-test.describe('Suite: super admin', () => {
+test.describe('Suite: super admin @regression', () => {
     test.use({ storageState: authFileSuperAdmin, userToken: process.env.TOKEN_ADMIN_SUPER })
 
-    test('as super admin user, add new admin user', async ({ dashboardPage, navigationPanelPage, usersPage, addUserPage }) => {
+    test('as super admin user, add new admin user @regression', async ({ dashboardPage, navigationPanelPage, usersPage, addUserPage }) => {
         const user = new RandomUser()
         const username = user.email.match(/(?<=\.).*(?=@)/)?.[0]    // trying to be as unique as possible while sticking to given email and fitting into 20-char limit
 
@@ -33,10 +34,10 @@ test.describe('Suite: super admin', () => {
     })
 })
 
-test.describe('Suite: product admin', () => {
+test.describe('Suite: product admin @regression', () => {
     test.use({ storageState: authFileProductAdmin, userToken: process.env.TOKEN_ADMIN_PRODUCT })
 
-    test('as product admin, add new product to catalog', async ({ dashboardPage, navigationPanelPage, productsPage, addProductPage }) => {
+    test('as product admin, add new product to catalog @regression', async ({ dashboardPage, navigationPanelPage, productsPage, addProductPage }) => {
         const productName = `testProduct${faker.number.int(999)}`
         const productImageName = 'product.png'
         const productImagePath = 'resources/test-data/img/'

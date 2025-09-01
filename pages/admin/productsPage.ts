@@ -1,5 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test'
-import { urls } from '../../resources/helper'
+import { urls } from '../../resources/config'
 
 export class ProductsPage {
     readonly page: Page

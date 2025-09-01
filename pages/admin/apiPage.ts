@@ -1,5 +1,5 @@
 import { APIRequestContext, expect } from '@playwright/test'
-import { urls } from '../../resources/helper'
+import { urls } from '../../resources/config'
 
 export class ApiPage {
     readonly request: APIRequestContext
