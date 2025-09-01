@@ -26,7 +26,7 @@ export class AddUserPage {
         this.passwordField  = this.page.getByRole('textbox', { name: 'Password' })
         this.confirmField   = this.page.getByRole('textbox', { name: 'Confirm' })
         this.statusSwitch   = this.page.getByRole('checkbox')
-        this.saveButton     = this.page.getByRole('button', { name: 'Save' })
+        this.saveButton     = this.page.locator('.fa-floppy-disk')
         this.returnButton   = this.page.locator('.btn-light')
         this.successBanner  = this.page.locator('#alert')
     }

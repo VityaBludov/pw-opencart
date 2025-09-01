@@ -4,6 +4,7 @@ export default defineConfig({
     testDir: './tests',
     fullyParallel: true,
     reporter: 'html',
+    timeout: 60000,
 
     use: {
         baseURL: 'http://172.18.73.229:80',
