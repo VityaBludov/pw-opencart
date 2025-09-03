@@ -2,7 +2,7 @@ import { expect, test } from '../../fixtures/main'
 import { RandomUser } from '../../resources/helper'
 import fs from 'fs'
 
-const user = new RandomUser
+const user = new RandomUser()
 const userFile = '.auth/user/account/customer.json'
 fs.writeFileSync(userFile, JSON.stringify(user)) // save user data to reuse in further tests
 
