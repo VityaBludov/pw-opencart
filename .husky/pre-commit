@@ -1,0 +1,3 @@
+#npx eslint $(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g') --fix
+#npx prettier $(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g') --write
+#git update-index --again
