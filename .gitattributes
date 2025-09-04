@@ -1,0 +1,11 @@
+# Set the default behavior to automatically normalize line endings
+* text=auto
+*.ts eol=crlf
+*.json eol=crlf
+*.md text eol=crlf
+*.txt text
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
