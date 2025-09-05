@@ -44,7 +44,7 @@ export const defaultUsers = {
 }
 
 export const mysqlParameters = {
-    host: '172.18.73.229',        // TODO: replace with env-dependent variable
+    host: process.env.DB_URL,
     port: 3306,
     user: 'pw',
     password: 'pw',               // TODO: move to secret
