@@ -1,0 +1,13 @@
+#version: '3.38'
+services:
+  pw-opencart-tests:
+    image: pw-opencart-tests
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: npm run test-staging
+    # uncomment for testing WSL
+    # network_mode: host
+    volumes:
+      - ./playwright-report/:/app/playwright-report
+      - ./test-results/:/app/test-results
