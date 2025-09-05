@@ -25,3 +25,8 @@ The purpose of the repository is to practice in Playwright automation testing. O
 3. Run tests via docker-compose:
 
     docker-compose up && docker-compose rm -fs
+
+## TODO
+- move test passwords to secret storage
+- separate buying steps from tests
+- add unique identifier for eacg test run (for teardown)
