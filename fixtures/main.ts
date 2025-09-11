@@ -8,6 +8,7 @@ import { AccountCreatedPage } from '../pages/account/accountCreatedPage'
 import { SearchResultsPage } from '../pages/shopping/searchResultsPage'
 import { ProductPage } from '../pages/shopping/productPage'
 import { CheckoutPage } from '../pages/shopping/checkoutPage'
+import { PurchaseFlow } from '../flows/shopping/purchaseFlow'
 
 
 type MainFixtures = {
@@ -18,6 +19,7 @@ type MainFixtures = {
     searchResultsPage: SearchResultsPage
     productPage: ProductPage
     checkoutPage: CheckoutPage
+    purchaseFlow: PurchaseFlow
 }
 
 export const test = base.extend<MainFixtures>({
@@ -49,6 +51,9 @@ export const test = base.extend<MainFixtures>({
 
     checkoutPage: async ({ page }, use) => {
         await use(new CheckoutPage(page))
+    },
+    purchaseFlow: async ({}, use) => {
+        await use(new PurchaseFlow())
     },
 })
 

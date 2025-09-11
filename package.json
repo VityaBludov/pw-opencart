@@ -4,7 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test-staging": "set DB_URL=172.18.73.229&& npx playwright test --config=playwright-staging.config.ts --grep \"@regression\""
+        "test-staging": "set DB_URL=172.18.73.229&& npx playwright test --config=playwright-staging.config.ts --grep \"@regression\"",
+        "test-local": "set DB_URL=172.18.73.229&& npx playwright test --config=playwright-staging.config.ts --ui"
     },
     "keywords": [],
     "author": "",
